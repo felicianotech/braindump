@@ -4,7 +4,7 @@
 apt-get update && apt-get -y upgrade
 
 # Install Package Dependencies
-apt-get -y install python-pip python-dev libxml2-dev libxslt1-dev libpq-dev tmux
+apt-get -y install python-pip python-dev python-setuptools libxml2-dev libxslt1-dev libpq-dev tmux
 
 # Postgresql Configuration
 
@@ -16,7 +16,7 @@ APP_DB_PASS=braindump
 APP_DB_NAME=$APP_DB_USER
 
 # Edit the following to change the version of PostgreSQL that is installed
-PG_VERSION=9.5
+PG_VERSION=9.5 #DEBUG
 
 ###########################################################
 # Changes below this line are probably not necessary
@@ -112,7 +112,8 @@ print_db_usage
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash
 export NVM_DIR="/root/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-nvm install node
+nvm install 8.9.1 #DEBUG
+node --version
 
 # Install Yarn
 apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
@@ -122,5 +123,6 @@ apt-get install -y -qq yarn
 
 # Install Dependencies
 cd /vagrant
+pip install --upgrade pip==9.0.3 #DEBUG
 pip install --upgrade -r requirements.txt
 yarn install

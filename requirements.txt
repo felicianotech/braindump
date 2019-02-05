@@ -20,7 +20,7 @@ unittest-xml-reporting==2.1.0
 ForgeryPy3==0.3.1
 
 # Other Dependencies
-psycopg2==2.6.2
+psycopg2==2.7.6
 sqlalchemy_searchable==0.10.2
 gunicorn==19.6.0
 markdown==2.6.7
